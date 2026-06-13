@@ -35,7 +35,7 @@
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-snap-type:y proximity;}
   body{
     background:var(--ink);
     color:var(--cream);
@@ -121,8 +121,9 @@
   .hero{
     min-height:100svh;
     display:flex; flex-direction:column; justify-content:center;
-    padding:96px 0 64px;
+    padding-top:96px; padding-bottom:72px;
     text-align:center;
+    scroll-snap-align:start;
   }
   .hero .eyebrow{margin-bottom:30px}
   .hero h1{
@@ -183,7 +184,12 @@
   @keyframes cue{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
 
   /* ---------- section frame ---------- */
-  section{padding:88px 0}
+  section{
+    min-height:100svh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding-top:120px; padding-bottom:120px;
+    scroll-snap-align:start;
+  }
   .seclabel{
     text-align:center; margin-bottom:46px;
   }
@@ -361,8 +367,9 @@
 
   /* ---------- FOOTER ---------- */
   footer{
-    text-align:center; padding:60px 0 80px;
-    border-top:1px solid var(--hair); margin-top:40px;
+    text-align:center; padding-top:96px; padding-bottom:96px;
+    border-top:1px solid var(--hair);
+    scroll-snap-align:start;
   }
   footer .mark{font-family:var(--display); letter-spacing:.42em; color:var(--gold); font-size:.85rem}
   footer .creed{margin-top:18px; color:var(--cream-dim); font-size:.82rem; letter-spacing:.12em; line-height:2}
@@ -371,7 +378,7 @@
   @media (max-width:480px){
     .frame{inset:9px}
     .wrap{padding:0 22px}
-    section{padding:72px 0}
+    section{padding-top:96px; padding-bottom:96px}
     .host{padding:26px 22px; gap:22px}
     .host .portrait{margin:0 auto}
     .host .info{text-align:center}
@@ -382,6 +389,7 @@
     *{animation:none!important; transition:none!important}
     .reveal{opacity:1; transform:none}
     .scrollcue .line{opacity:.6}
+    html{scroll-snap-type:none!important}
   }
 </style>
 </head>
